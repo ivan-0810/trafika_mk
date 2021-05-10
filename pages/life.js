@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { get_Analizi_Temi } from '../store/sidebar/action';
 import { isEmpty } from 'lodash';
 import Single_Page from '../components/Single_Page';
-import Layout_Single from '../components/Layout_Single';
+import Layout from '../components/Layout';
 import axios from 'axios';
 
 const Life = ({ data, sidebar_data }) => {
@@ -15,9 +15,9 @@ const Life = ({ data, sidebar_data }) => {
     }
   }, []);
   return (
-    <Layout_Single>
+    <Layout>
       <Single_Page title="Life" cards={data} />
-    </Layout_Single>
+    </Layout>
   );
 };
 

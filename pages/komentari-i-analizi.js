@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { get_Analizi_Temi } from '../store/sidebar/action'
 import { isEmpty } from 'lodash'
 import Single_Page from '../components/Single_Page'
-import Layout_Single from '../components/Layout_Single'
+import Layout from '../components/Layout'
 import axios from 'axios'
 
 const Temi = ({ sidebar_data, data }) => {
@@ -16,9 +16,9 @@ const Temi = ({ sidebar_data, data }) => {
    
   }, [])
     return (
-      <Layout_Single>
+      <Layout>
       <Single_Page title="Теми" cards={sidebar_data} />
-    </Layout_Single>
+    </Layout>
     );
   }
   

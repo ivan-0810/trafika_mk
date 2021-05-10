@@ -1,13 +1,13 @@
 import React from 'react';
-import Layout_Single from '../components/Layout_Single';
+import Layout from '../components/Layout';
 import axios from 'axios';
 import ImpresumPage from '../components/Impresum'
 
 const Impresum = ({ data }) => {
     return (
-        <Layout_Single>
+        <Layout>
         <ImpresumPage data={data} />
-      </Layout_Single>
+      </Layout>
     );
   }
   

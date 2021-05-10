@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import MarketingPage from '../components/Marketing'
-import Layout_Single from '../components/Layout_Single'
+import Layout from '../components/Layout'
 import axios from 'axios'
 
 const Marketing = () => {
 
   return (
-    <Layout_Single>
+    <Layout>
       <MarketingPage title="Маркетинг"  />
-    </Layout_Single>
+    </Layout>
   );
 };
 

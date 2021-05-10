@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Layout_Single_Post from '../../components/Layout_single_Post';
+import Layout from '../../components/Layout';
 import Single_Post from '../../components/Single_Post';
 import axios from 'axios';
 import { get_Analizi_Temi } from '../../store/sidebar/action';
@@ -19,9 +19,9 @@ const Single_PostPage = ({ data, sidebar_data }) => {
     }
   }, [data,sidebar_data])
   return (
-    <Layout_Single_Post>
+    <Layout>
       <Single_Post data={data} />
-    </Layout_Single_Post>
+    </Layout>
   );
 };
 
