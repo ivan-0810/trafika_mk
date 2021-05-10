@@ -1,0 +1,78 @@
+.chevron {
+  background-color: $blue;
+  width: 30px !important;
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 2.2rem;
+    outline: none;
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+}
+.chevron_left {
+  left: -30px !important;
+}
+.chevron_right {
+  right: -30px !important;
+}
+.carousel {
+  .img-wrapper {
+    height: 165px;
+  }
+  .wrapper {
+    width: calc(100% - 63px);
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    .itemsInnerWrapper {
+      transform: unset !important;
+    }
+  }
+}
+@media (max-width: 576.98px) {
+  .carousel {
+    padding: 0 1.5px;
+    .img-wrapper {
+      height: 240px;
+    }
+    .itemWrapper:not(:last-child) {
+      margin: 0px;
+    }
+    .wrapper {
+      width: 100%;
+      position: relative;
+    }
+    &::after {
+      content: '';
+      height: 40px;
+      width: 99%;
+      background-color: $white;
+      position: absolute;
+      bottom: -42px;
+      z-index: 1;
+    }
+    .chevron {
+      height: 26px;
+      top: 244px;
+      z-index: 2;
+      background-color: transparent;
+      button {
+        color: $black;
+      }
+    }
+    .chevron_right {
+      right: 35% !important;
+    }
+    .chevron_left {
+      left: 35% !important;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.my-modal{
+    .modal-body {
+ position: relative;
+        background-color: white;
+        display: flex;
+        align-items: flex-end;
+        input{
+        
+            border: none;
+            font-size: 1.3rem;
+            &:focus, &:active{
+                outline: none;
+            }
+           
+        }
+        .loupe-red-icon{
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translate(5px, -50%);
+            cursor: pointer;
+        }
+        ::placeholder{
+            font-size: 1.3rem;
+        }
+    }
+}

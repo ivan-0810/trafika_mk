@@ -1,0 +1,110 @@
+@import './fonts';
+@import './mixin';
+@import './variables';
+@import './_menu';
+@import './homepage';
+@import './carousel';
+@import './footer';
+@import './single_page';
+@import './single_post';
+@import './sidebar';
+@import './banners.scss';
+@import './modal';
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 17px;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: vesnik pt sans narrow,sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 4rem;
+
+}
+h2 {
+  font-size: 1.6rem;
+}
+h3 {
+  font-size: 2.5rem;
+}
+h4 {
+  font-size: 2rem;
+}
+h5 {
+  font-size: 1.3rem;
+}
+h6 {
+  font-size: 1.2rem;
+}
+p {
+  font-size: 1.1rem;
+}
+button, .btn-font-size{
+  font-size: 1rem;
+}
+a {
+  font-size: 1rem;
+}
+span, .span-font-size{
+  font-size: 0.7rem;
+}
+
+button:focus, button:active, .form-control:focus, .form-control:active{
+    box-shadow: none!important;
+    outline: none;
+    border: none;
+}
+
+
+@media(max-width: 1639.98px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 1439.98px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media(max-width: 1199.98px) {
+  body {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1001.98px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media  (max-width: 1000.98px) {
+  body {
+    font-size: 13px;
+  }
+}
+@media (max-width: 767.98px)  {
+  body {
+    font-size: 13px;
+  }
+}
+@media (max-width: 575.98px) {
+  body {
+    font-size: 14px;
+  }
+}
+a {
+  text-decoration: none !important;
+}
+
+
+
+
+
+
+
+
+
