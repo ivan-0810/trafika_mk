@@ -27,12 +27,10 @@ const Layout = props => {
         <title>Trafika.mk</title>
         <link rel="shortcut icon" href="/vesnik-favicon.svg" />
         <link rel="icon" href="/vesnik-favicon.svg"/>
-        {/* <script type='text/javascript' src='http://adserver.mk/revive-adserver/www/delivery/spcjs.php?id=30'></script> */}
       </Head>
       <Menu />
 
       <main className="main-content">{props.children}</main>
-      {/* <Footer /> */}
     </div>
   );
 };
