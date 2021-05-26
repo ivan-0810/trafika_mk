@@ -88,9 +88,9 @@ const Single_Post = ({ data }) => {
           </span>
         </div>
         <div className="col-md-4 col-12">
-          <Sidebar
+          {/* <Sidebar
             analizi_temi={sidebar.analizi_temi && sidebar.analizi_temi}
-          />{' '}
+          />{' '} */}
         </div>
       </div>
     </div>
