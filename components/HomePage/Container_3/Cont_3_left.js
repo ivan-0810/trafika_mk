@@ -6,108 +6,86 @@ import { useDispatch } from 'react-redux';
 import { is_loading_true } from '../../../store/menu/action';
 import Medium from '../../Medium';
 
-const Cont_3_Left = ({ cont_left, header, link }) => {
+const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
   const dispatch = useDispatch();
-  const mediumi = ['Медиум', 'Медиум', 'Медиум', 'Медиум', 'Медиум', 'Медиум'];
+
   return (
     <div className="col-md-6 col-12 mb-5 mb-sm-0">
       <div className="row">
-        <Container_Header header={header} padding="" link={link} />
-        <div className="big-cont col-12">
-          <div className="row mx-0 h-100">
-            <div className="col-md-6 col-12 px-0">
-              {' '}
-              {cont_left && (
-                <Img_wrapper
-                  title={cont_left[0].title}
-                  img={cont_left[0].field_naslovna_slika}
-                  alt={cont_left[0].title}
-                  link={cont_left[0].nid}
-                  nadnaslov={cont_left[0].field_nadnaslov}
-                />
-              )}
-            </div>
-            <div className="col-md-6 col-12 px-0">
-              {' '}
-              {cont_left && (
-                <Img_wrapper
-                  title={cont_left[0].title}
-                  img={cont_left[0].field_naslovna_slika}
-                  alt={cont_left[0].title}
-                  link={cont_left[0].nid}
-                  nadnaslov={cont_left[0].field_nadnaslov}
-                />
-              )}
-            </div>
-          </div>
-        </div>
+        <Container_Header header={header} padding="" link={category_link_left} />
 
         <div className="col-12 mt-2 pr-0 ">
           {cont_left &&
-            cont_left.map((card, index) => (
-              <div
-                key={index * 4324}
-                className="row mx-auto sredni-vesti mt-sm-2"
-              >
-                <div className="col-4 pl-0">
-                  <Img_wrapper
-                    img={card.field_naslovna_slika}
-                    alt={card.title}
-                    link={cont_left[0].nid}
-                  />
-                </div>
-                <div className="col-8 pl-0">
-                  <h2>
-                    <Link href={`/node/${card.nid}`}>
-                      <a onClick={() => dispatch(is_loading_true())}>
-                        {card.title}
-                      </a>
-                    </Link>
-                  </h2>
-                  <span className="meduim">
-                    Медиум - <b>ново</b>
-                  </span>
-                  <div>
-                    <div className="d-flex align-items-center podnaslov mt-2">
-                      <p>
-                        Наслов пгогоел да видиме како изгледа со повеке текст во
-                        параграафот
-                      </p>
-                      <Medium crta="-" text="Медиум" />
+            cont_left.map((cluster, index) => (
+              <>
+                {index < 4 && (
+                  <div
+                    key={index * 5}
+                    className="row mx-auto cluster mt-sm-2"
+                  >
+                    <div className="col-4 pl-0 h-100">
+                      <Img_wrapper
+                        img={cluster.articles[0].photo_url}
+                        alt={cluster.articles[0].title}
+                        link={cluster.articles[0].link}
+                      />
                     </div>
-                    <div className="d-flex podnaslov">
-                      <p>
-                        Наслов пгогоел да видиме како изгледа со повеке текст во
-                        параграафот
-                      </p>
-                      <Medium crta="-" text="Медиум" />
-                    </div>
-                    <div className="d-flex podnaslov">
-                      <p>
-                        Наслов пгогоел да видиме како изгледа со повеке текст во
-                        параграафот
-                      </p>
-                      <Medium crta="-" text="Медиум" />
-                    </div>
-                    <div className="d-flex align-items-center mediumi">
-                      <Medium crta="|" text="Медиум" />
-                      {mediumi.map((medium, index) =>
-                        index < 3 ? (
-                          <Medium key={index * 743} crta="|" text={medium} />
-                        ) : (
-                          index === 3 && (
-                            <Medium
-                              key={index * 743}
-                              crta="|"
-                              text="сите 150 вести"
-                            />
-                          )
-                        )
-                      )}
+
+                    <div className="col-8 pl-0 d-flex flex-column justify-content-between">
+                      {cluster.articles.map((article, inx) => (
+                        <>
+                          {inx === 0 ? (
+                            <>
+                              <h2 key={index * 45632}>
+                                <Link href={article.link}>
+                                  <a
+                                    onClick={() => dispatch(is_loading_true())}
+                                  >
+                                    {article.title}
+                                  </a>
+                                </Link>
+                              </h2>
+                              <span className="meduim">
+                                {article.feed.name} - <b>ново</b>
+                              </span>
+                            </>
+                          ) : (
+                            inx < 4 && (
+                              <div key={index * 43232} className="d-flex align-items-center podnaslov">
+                                <Link href={article.link}>
+                                  <p>{article.title}</p>
+                                </Link>
+
+                                <Medium crta="-" text={article.feed.name} />
+                              </div>
+                            )
+                          )}
+                        </>
+                      ))}
+
+                      <div key={index * 42390} className="d-flex align-items-center mediumi">
+                        {cluster.articles.map((article, inx_2) => (
+                          <>
+                            {inx_2 > 4 && inx_2 < 9 && (
+                              <Link key={index * 4290} href={article.link} >
+                                <a>
+                                  <Medium crta="|" text={article.feed.name} />
+                                </a>
+                              </Link>
+                            )}
+                            
+                          </>
+                        ))}
+                        <Link href={`/${category_link_left}`}>
+                              <a>
+                                <Medium crta="|" text={`сите ${cluster.articles_count} вести`} />
+                              </a>
+                            </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                )}
+              </>
             ))}
         </div>
       </div>

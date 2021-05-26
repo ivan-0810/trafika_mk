@@ -1,31 +1,50 @@
-.chevron {
-  background-color: $blue;
-  width: 30px !important;
-  button {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    color: white;
-    font-size: 2.2rem;
-    outline: none;
-    &:focus {
+
+.homepage-carousel {
+  position: relative;
+  h3{
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    padding: 8px 20px;
+    background-color: $black;
+    color: $white;
+    text-transform: uppercase;
+    z-index: 3;
+    font-size: 1.2rem;
+  }
+  .chevron {
+    background-color: $red;
+    width: 30px !important;
+    position: absolute;
+    height: 37px;
+    top: unset;
+    bottom: 10px;
+    button {
+      cursor: pointer;
       border: none;
+      background-color: transparent;
+      color: white;
+      font-size: 2.2rem;
+      margin-top: -8px;
       outline: none;
+      &:focus {
+        border: none;
+        outline: none;
+      }
     }
   }
-}
-.chevron_left {
-  left: -30px !important;
-}
-.chevron_right {
-  right: -30px !important;
-}
-.carousel {
+  .chevron_left {
+    left: unset;
+    right:33px !important;
+  }
+  .chevron_right {
+    right: 0px !important;
+  }
   .img-wrapper {
-    height: 165px;
+    height: 500px;
   }
   .wrapper {
-    width: calc(100% - 63px);
+    width:100%;
     margin: 0 auto;
   }
 
@@ -34,6 +53,14 @@
     line-height: 1.7rem;
     .itemsInnerWrapper {
       transform: unset !important;
+    }
+  }
+}
+.homepage-boxes{
+  .img-wrapper{
+    height: 250px;
+    .text-wrapper{
+      height: 96px;
     }
   }
 }

@@ -10,7 +10,7 @@ import { useWindowSize } from '../../hooks/UseWindowSize';
 import { usePageY_Offset } from '../../hooks/UsePageY_Offset';
 import { useRouter } from 'next/router';
 import { menu_titles } from '../../constants/Menu_Items';
-import logo from '../../styles/assets/images/vesnik-logo.svg';
+import logo from '../../styles/assets/images/TRAFIKA.mk.svg';
 const Menu = () => {
   const [modalShow, setModalShow] = useState(false);
   const [inputVal, setInputVal] = useState('');
@@ -91,7 +91,7 @@ const Menu = () => {
                           single_title === item.slug ? 'border-b-red' : ''
                         }`}
                       >
-                        <Link href={`/${item.slug}`}>
+                        <Link href={`/category/${item.title}`}>
                           <a onClick={() => dispatch(is_loading_true())}>
                             {item.title}
                           </a>

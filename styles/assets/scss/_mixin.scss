@@ -20,3 +20,9 @@
    height: $height;
 }
 
+@mixin position-absolute-center($top, $left, $translate) {
+   top: $top;
+   left: $left;
+   transform: $translate;
+}
+

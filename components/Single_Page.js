@@ -3,9 +3,10 @@ import Img_wrapper from '../components/Img_wrapper';
 import Sidebar from './Sidebar';
 import { useSelector, useDispatch } from 'react-redux';
 import { is_loading_true } from '../store/menu/action';
+import Medium from '../components/Medium';
 
-const Single_Page = ({ title, cards }) => {
-  const dispatch = useDispatch()
+const Single_Page = ({ title, clusters }) => {
+  const dispatch = useDispatch();
   const sidebar = useSelector(state => state.sidebar);
   const menu = useSelector(state => state.menu);
 
@@ -14,7 +15,7 @@ const Single_Page = ({ title, cards }) => {
   }
 
   return (
-    <div className="container big-container single-page">
+    <div className="container big-container category">
       {menu && menu.is_loading && menu.is_loading && (
         <div className="spinner-wrapper rounded-circle">
           <div className="eclipse_spinner"></div>
@@ -22,128 +23,88 @@ const Single_Page = ({ title, cards }) => {
       )}
       <div className="row">
         <div className="col-12">
-          <div className="header p-3 d-flex justify-content-center">
+          <div className="header">
             <h2 className="text-center">{title}</h2>
           </div>
         </div>
-        {cards && (
-          <div className="col-md-9 col-12 main-content">
-            <div className="block-region-content">
-              <div className="row mx-0">
-                <div className="col-lg-8 col-md-6 col-12 small-padding ">
-                  <div className="big-cont">
-                    <Img_wrapper
-                      title={cards[0].title}
-                      img={`${cards[0].field_naslovna_slika}`}
-                      alt={cards[0].title}
-                      link={cards[0].nid}
-                    />
-                  </div>
+        <div className="col-md-9 col-12">
+          {clusters &&
+            clusters.map((cluster, index) => (
+              <div key={index * 5} className="row mx-auto cluster mt-sm-2">
+                <div className="col-4 pl-0 h-100">
+                  <Img_wrapper
+                    img={cluster.articles[0].photo_url}
+                    alt={cluster.articles[0].title}
+                    link={cluster.articles[0].link}
+                  /> 
                 </div>
-                <div className="col-lg-4 col-md-6 col-12 px-0 ">
-                  <div className="small-cont">
-                    <div className="small-padding box">
-                      <Img_wrapper
-                        img={`${cards[1].field_naslovna_slika}`}
-                        title={cards[1].title}
-                        link={cards[1].nid}
-                        alt={cards[1].title}
-                      />
-                    </div>
-                    <div className="small-padding box">
-                      <Img_wrapper
-                        img={`${cards[2].field_naslovna_slika}`}
-                        title={cards[2].title}
-                        link={cards[2].nid}
-                        alt={cards[2].title}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="row mx-0 mt-2">
-                <div className="col-12 mt-2 px-0 ">
-                  {cards &&
-                    cards.map(
-                      (card, index) =>
-                        index > 3 && (
+
+                <div className="col-8 pl-0 d-flex flex-column justify-content-between">
+                  {cluster.articles.map((article, inx) => (
+                    <>
+                      {inx === 0 ? (
+                        <>
+                          <h2 key={index * 45632}>
+                            <Link href={article.link}>
+                              <a onClick={() => dispatch(is_loading_true())}>
+                                {article.title}
+                              </a>
+                            </Link>
+                          </h2>
+                          <span className="meduim">
+                            {article.feed.name} - <b>ново</b>
+                          </span>
+                        </>
+                      ) : (
+                        inx < 4 && (
                           <div
-                            key={index * 432}
-                            className="row mx-0 kategorija-list-row"
+                            key={index * 43232}
+                            className="d-flex align-items-center podnaslov"
                           >
-                            <div className="col-md-3 px-0 ">
-                              <Img_wrapper
-                                img={`${card.field_naslovna_slika}`}
-                                alt={cards[0].title}
-                                link={cards[0].nid}
-                              />
-                            </div>
-                            <div className="col-md-9 px-0 px-sm-3">
-                              <div className="views-field views-field-title">
-                                <h3 className="field-content">
-                                  <Link href={`/node/${card.nid}`}>
-                                    <a
-                                      onClick={() =>
-                                        dispatch(is_loading_true())
-                                      }
-                                    >
-                                      {card.title}
-                                    </a>
-                                  </Link>
-                                </h3>
-                              </div>
-                              <div className="">
-                                <span className="field-content small-datum">
-                                  {card.created}
-                                </span>
-                              </div>
-                              <div className="views-field views-field-body">
-                                <span className="field-content">
-                                  <div
-                                    className="main-content"
-                                    dangerouslySetInnerHTML={createMarkup(card.body)}
-                                  ></div>
-                                </span>
-                              </div>
-                            </div>
+                            <Link href={article.link}>
+                              <p>{article.title}</p>
+                            </Link>
+
+                            <Medium crta="-" text={article.feed.name} />
                           </div>
                         )
-                    )}
-                </div>
-                <div className="col-12 px-0">
-                  <ul className="js-pager__items">
-                    <li className="prev-list mr-2">
-                      <a
-                        href="/views/ajax?page=0"
-                        title="Go to previous page"
-                        rel="prev"
-                      >
-                        <span className="visually-hidden">Previous page</span>
-                        <button className="btn-arrow">&#8249;</button>
-                      </a>
-                    </li>
+                      )}
+                    </>
+                  ))}
 
-                    <li className="next-list ml-2">
-                      <a
-                        href="/views/ajax?page=2"
-                        title="Go to next page"
-                        rel="next"
-                      >
-                        <span className="visually-hidden">Next page</span>
-                        <button className="btn-arrow">&#8250;</button>
+                  <div
+                    key={index * 42390}
+                    className="d-flex align-items-center mediumi"
+                  >
+                    {cluster.articles.map((article, inx_2) => (
+                      <>
+                        {inx_2 > 4 && inx_2 < 9 && (
+                          <Link key={index * 4290} href={article.link}>
+                            <a>
+                              <Medium crta="|" text={article.feed.name} />
+                            </a>
+                          </Link>
+                        )}
+                      </>
+                    ))}
+                    <Link href={`/cluster/${cluster.id}`}>
+                      <a>
+                        <Medium
+                          crta="|"
+                          text={`сите ${cluster.articles_count} вести`}
+                        />
                       </a>
-                    </li>
-                  </ul>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        )}
-        <div className="col-md-3">
+            ))}
+        </div>
+        {/* <div className="col-md-3">
           <Sidebar
             analizi_temi={sidebar.analizi_temi && sidebar.analizi_temi}
           />
-        </div>
+        </div> */}
         <style jsx>{`
           .arrow-right {
             background-image: url(/images/icons/left-arrow.svg);

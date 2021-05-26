@@ -1,8 +1,6 @@
 .sidebar {
   height: 949px;
-  .sidebar-banner{
-    height: 250px;
-  }
+
   .block-title-wrapper {
     height: fit-content;
   }
@@ -25,12 +23,12 @@
     h2 {
       font-family: 'pt sans narrow', sans-serif;
     }
-    height: 650px;
+    height:900px;
     overflow-y: scroll;
     margin-bottom: 10px;
 
     .single-small-vest {
-      border-top: 1px solid #d9d9d9;
+
       overflow: hidden;
       padding: 10px 0;
       .field-content {
@@ -60,7 +58,7 @@
           line-height: 1;
           display: -webkit-box;
           max-width: 100%;
-          -webkit-line-clamp: 2;
+          -webkit-line-clamp:3;
           -webkit-box-orient: vertical;
           overflow: hidden;
         }

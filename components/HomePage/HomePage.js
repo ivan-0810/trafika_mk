@@ -1,19 +1,29 @@
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Container1 from './Container_1';
-import Container2 from './Container_2';
 import Container_3 from './Container_3/Container_3';
 import Carousel from '../Carousel';
-import Container_4 from './Container_4';
-import Container_5 from './Container_5';
-import Container_6 from './Container_6';
-import Container_7 from './Container_7';
-import Container_8 from './Container_8';
 import Sidebar from '../Sidebar';
-
+import Banners from '../Banners';
+import Home_sidebar_banners from './Home_sidebar_banners';
 const HomePage = () => {
   const home = useSelector(state => state.home_page);
-  const sidebar = useSelector(state => state.sidebar);
+  const { clusters, top_news } = home;
+  const [ sidebar_news, setSidebar_news] = useState()
   const menu = useSelector(state => state.menu);
+  const makedonija = clusters.filter(
+    cluster => cluster.main_category === 'македонија'
+  );
+  const balkan = clusters.filter(cluster => cluster.main_category === 'балкан');
+  const svet = clusters.filter(cluster => cluster.main_category === 'свет');
+  const biznis = clusters.filter(cluster => cluster.main_category === 'бизнис');
+  const zabava = clusters.filter(cluster => cluster.main_category === 'забава');
+  const zivot = clusters.filter(cluster => cluster.main_category === 'живот');
+  const sport = clusters.filter(cluster => cluster.main_category === 'спорт');
+  const techno = clusters.filter(cluster => cluster.main_category === 'техно');
+  useEffect(() => {
+    
+  }, [clusters])
 
   return (
     <div className="container big-container home-page">
@@ -24,66 +34,80 @@ const HomePage = () => {
       )}
 
       <div className="row">
-        <div className="col-lg-9  col-12">
-          {home.container_1 && <Container1 cards={home.container_1} />}
-          <div className="row small-padding">
-            <div className="col-12 px-0">
-              <div
-                className="banner_1 my-2"
-                style={{ height: '180px', backgroundColor: 'gray' }}
-              >
-                banner
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="col-lg-3  pr-sm-0 col-12">
-          {sidebar.analizi_temi && (
-            <Sidebar analizi_temi={sidebar.analizi_temi} />
-          )}
+          <Sidebar top_news={top_news} />
         </div>
-        </div>
-        {home.container_3_right && home.container_3_left && (
-          <Container_3
-            cont_right={home.container_3_right}
-            cont_left={home.container_3_left}
-            header_left="балкан"
-            header_right="свет"
-            link_left="balkan"
-            link_right="svet"
-          />
-        )}
-        <div className="row small-padding my-2 mx-0">
-          <div className="col-12 px-0">
-            <div className="row mx-0">
-              <div className="col-4">
-                <div
-                  className="banner_2 my-2"
-                  style={{ height: '180px', backgroundColor: 'gray' }}
-                >
-                  baneri
-                </div>
-              </div>
-              <div className="col-4 px-0">
-                <div
-                  className="banner_2 my-2"
-                  style={{ height: '180px', backgroundColor: 'gray' }}
-                >
-                  baneri
-                </div>
-              </div>
-              <div className="col-4">
-                <div
-                  className="banner_2 my-2"
-                  style={{ height: '180px', backgroundColor: 'gray' }}
-                >
-                  baneri
+        <div className="col-md-6  col-12">
+          <Container1 top_news={top_news} />
+          <div className="row ">
+            <div className="col-12">
+              <div
+                className="banner_1"
+                style={{ height: '100px', backgroundColor: 'gray' }}
+              >
+                <div className="banner banner-square">
+                  <script type="text/javascript"></script>
+                  <noscript>
+                    <a
+                      target="_blank"
+                      href="http://adserver.mk/revive-adserver/www/delivery/ck.php?n=1ae9e48"
+                    >
+                      <img
+                        border="0"
+                        alt=""
+                        src="http://adserver.mk/revive-adserver/www/delivery/avw.php?zoneid=247&amp;n=1ae9e48"
+                      />
+                    </a>
+                  </noscript>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {/* {home.carousel_2 && (
+        <Home_sidebar_banners />
+      </div>
+
+      <Container_3
+        cont_right={balkan}
+        cont_left={makedonija}
+        header_left="македонија"
+        header_right="балkan"
+        category_link_left="makedonija"
+        category_link_right="balkan"
+      />
+
+      <Banners />
+      <Container_3
+        cont_right={svet}
+        cont_left={biznis}
+        header_left="свет"
+        header_right="бизнис"
+        category_link_left="svet"
+        category_link_right="biznis"
+      />
+
+      <Banners />
+      <Container_3
+        cont_right={zabava}
+        cont_left={zivot}
+        header_left="забава"
+        header_right="живот"
+        category_link_left="zabava"
+        category_link_right="zivot"
+      />
+
+      <Banners />
+      <Container_3
+        cont_right={techno}
+        cont_left={sport}
+        header_left="спорт"
+        header_right="техно"
+        category_link_left="sport"
+        category_link_right="techno"
+      />
+
+      <Banners />
+      {/* {home.carousel_2 && (
           <Container_7 cards={home.carousel_2} header="cult" link="cult" />
         )}
         {home.container_8 && (

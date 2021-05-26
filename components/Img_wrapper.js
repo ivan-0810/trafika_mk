@@ -7,21 +7,22 @@ const Img_wrapper = ({ img, title, alt, link, nadnaslov }) => {
   const dispatch = useDispatch();
   return (
     <div className="img-wrapper">
-      <Link href={`/node/${link}`}>
-        <a className="" onClick={() => dispatch(is_loading_true())}>
-          <img src={`https://api.vesnik.com${img}`} alt={title} />
-        </a>
-      </Link>
-
+      <div className="img-div">
+        <Link href={link}>
+          <a className="" onClick={() => dispatch(is_loading_true())}>
+            <img src={img} alt={title} />
+          </a>
+        </Link>
+        {nadnaslov && nadnaslov !== "" && (
+          <div className="nadnaslov">
+            <h4 className="px-2">{nadnaslov}</h4>
+          </div>
+        )}
+      </div>
       <div className="text-wrapper">
         {title && (
           <div className="title">
             <h2>{title}</h2>
-          </div>
-        )}
-        {nadnaslov && (
-          <div className="nadnaslov">
-            <h4 className="">{nadnaslov}</h4>
           </div>
         )}
       </div>

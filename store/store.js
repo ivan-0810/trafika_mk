@@ -2,7 +2,6 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { HYDRATE, createWrapper } from 'next-redux-wrapper'
 import thunkMiddleware from 'redux-thunk'
 import home_page from './home_page/reducer'
-import sidebar from './sidebar/reducer'
 import menu from './menu/reducer' 
 import single_post from './single_post/reducer'
 const bindMiddleware = (middleware) => {
@@ -15,7 +14,6 @@ const bindMiddleware = (middleware) => {
 
 const combinedReducer = combineReducers({
    home_page,
-   sidebar,
    menu,
    single_post
 })
