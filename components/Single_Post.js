@@ -15,9 +15,9 @@ const Single_Post = ({ data }) => {
 
  
 
-  function createMarkup() {
-    return { __html: data.body };
-  }
+  // function createMarkup() {
+  //   return { __html: data.body };
+  // }
 
   return (
     <div className="container single-post">
@@ -73,14 +73,14 @@ const Single_Post = ({ data }) => {
               alt={data.title}
             /> */}
           </div>
-          <div className="text px-sm-3 mt-3">
+          {/* <div className="text px-sm-3 mt-3">
             <div
               id="inside_text"
               className="inside-text"
               ref={myRef}
               dangerouslySetInnerHTML={createMarkup()}
             ></div>
-          </div>
+          </div> */}
     
 
           <span className="copyright mt-5 ml-3">

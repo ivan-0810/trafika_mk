@@ -10,9 +10,9 @@ const Single_Page = ({ title, clusters }) => {
   const sidebar = useSelector(state => state.sidebar);
   const menu = useSelector(state => state.menu);
 
-  function createMarkup(body) {
-    return { __html: body };
-  }
+  // function createMarkup(body) {
+  //   return { __html: body };
+  // }
 
   return (
     <div className="container big-container category">
