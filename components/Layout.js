@@ -12,17 +12,17 @@ const Layout = props => {
   return (
     <div className="content-wrapper p-0">
       <Head>
-      <meta name="description" content="..први во Македонија" />
+      <meta name="description" content="..trafika" />
         <meta
           name="robots"
           content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
         />
         <meta property="og:locale" content="mk_MK" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Весник, прв дознава" />
-        <meta property="og:description" content="..први во Македонија" />
-        <meta property="og:image" content="https://vesnik.mk/" />
-        <meta property="og:url" content="https://vesnik.mk/" />
+        <meta property="og:title" content="trafika -mk" />
+        <meta property="og:description" content="..trafika" />
+        <meta property="og:image" content="https://trafika.mk/" />
+        <meta property="og:url" content="https://trafika.mk/" />
         <meta property="og:site_name" content="Весник" />
         <title>Trafika.mk</title>
         <link rel="shortcut icon" href="/vesnik-favicon.svg" />

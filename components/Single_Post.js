@@ -64,14 +64,14 @@ const Single_Post = ({ data }) => {
 
         <div className="col-md-8 col-12 main-content py-3">
           <div className="img-div">
-            <img
+            {/* <img
               src={
                 data.field_naslovna_slika
                   ? `https://api.vesnik.com${data.field_naslovna_slika}`
                   : logo
               }
               alt={data.title}
-            />
+            /> */}
           </div>
           <div className="text px-sm-3 mt-3">
             <div
