@@ -1,17 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import Menu_2 from './Menu_2';
+
 import MyModal from '../Modal';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { is_loading_true } from '../../store/menu/action';
-import { isEmpty, split } from 'lodash';
+import { isEmpty} from 'lodash';
 import { useWindowSize } from '../../hooks/UseWindowSize';
-import { usePageY_Offset } from '../../hooks/UsePageY_Offset';
 import { useRouter } from 'next/router';
 import { menu_titles } from '../../constants/Menu_Items';
 import logo from '../../styles/assets/images/TRAFIKA.mk.svg';
 const Menu = () => {
+
   const [modalShow, setModalShow] = useState(false);
   const [inputVal, setInputVal] = useState('');
   const dispatch = useDispatch();
@@ -32,7 +32,6 @@ const Menu = () => {
   const handleSearch = e => {
     setInputVal(e.target.value);
     if (e.key === 'Enter') {
-      console.log(e.target.value);
       setInputVal('');
       setModalShow(false);
     }

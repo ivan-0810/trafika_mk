@@ -37,8 +37,8 @@ const Carousel_Cont = ({ carousel_news, isCarousel_2, cards_num }) => {
           {carousel_news.map((news, index) => (
             <section key={index * 6432} className="img-wrapper">
               <div className="img-div">
-                <Link href={news.article.link}>
-                  <a className="" onClick={() => dispatch(is_loading_true())}>
+                <Link href={`/post/${news.article.id}`}>
+                  <a target="_blank" onClick={() => dispatch(is_loading_true())}>
                     <img src={`${news.article.photo_url}`} alt={news.article.title} />
                   </a>
                 </Link>

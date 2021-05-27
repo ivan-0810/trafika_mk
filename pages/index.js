@@ -30,8 +30,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
               article
             }
             top_news.push(obj)
+          }else {
+            
+            return;
           }
-          return;
+  
         });
       });
       store.dispatch(get_all_clusters(clusters));

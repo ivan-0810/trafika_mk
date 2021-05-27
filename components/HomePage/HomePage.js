@@ -9,20 +9,35 @@ import Home_sidebar_banners from './Home_sidebar_banners';
 const HomePage = () => {
   const home = useSelector(state => state.home_page);
   const { clusters, top_news } = home;
-  const [ sidebar_news, setSidebar_news] = useState()
   const menu = useSelector(state => state.menu);
-  const makedonija = clusters.filter(
-    cluster => cluster.main_category === 'македонија'
-  );
-  const balkan = clusters.filter(cluster => cluster.main_category === 'балкан');
-  const svet = clusters.filter(cluster => cluster.main_category === 'свет');
-  const biznis = clusters.filter(cluster => cluster.main_category === 'бизнис');
-  const zabava = clusters.filter(cluster => cluster.main_category === 'забава');
-  const zivot = clusters.filter(cluster => cluster.main_category === 'живот');
-  const sport = clusters.filter(cluster => cluster.main_category === 'спорт');
-  const techno = clusters.filter(cluster => cluster.main_category === 'техно');
+  const [makedonija, setMakedonija] = useState([]);
+  const [balkan, setBalkan] = useState([]);
+  const [svet, setSvet] = useState([]);
+  const [biznis, setBiznis] = useState([]);
+  const [zabava, setZabava] = useState([]);
+  const [zivot, setZivot] = useState([]);
+  const [sport, setSport] = useState([]);
+  const [techno, setTechno] = useState([]);
+ 
   useEffect(() => {
-    
+    const makedonija_flitered = clusters.filter(
+      cluster => cluster.main_category === 'македонија'
+    );
+    const balkan_flitered  = clusters.filter(cluster => cluster.main_category === 'балкан');
+    const svet_flitered  = clusters.filter(cluster => cluster.main_category === 'свет');
+    const biznis_flitered  = clusters.filter(cluster => cluster.main_category === 'бизнис');
+    const zabava_flitered  = clusters.filter(cluster => cluster.main_category === 'забава');
+    const zivot_flitered  = clusters.filter(cluster => cluster.main_category === 'живот');
+    const sport_flitered  = clusters.filter(cluster => cluster.main_category === 'спорт');
+    const techno_flitered  = clusters.filter(cluster => cluster.main_category === 'техно');
+    setMakedonija(makedonija_flitered);
+    setBalkan(balkan_flitered);
+    setSvet(svet_flitered);
+    setBiznis(biznis_flitered);
+    setZabava(zabava_flitered);
+    setZivot(zivot_flitered);
+    setSport(sport_flitered);
+    setTechno(techno_flitered)
   }, [clusters])
 
   return (

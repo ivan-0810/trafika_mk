@@ -8,6 +8,11 @@ const Single_Post = (state = InitialState, action) => {
       return {
         ...action.payload,
       };
+      case single_post.GET_SINGLE_LINK:
+      return {
+        ...state,
+        link: action.payload,
+      };
     default:
       return state;
   }

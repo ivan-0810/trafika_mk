@@ -2,113 +2,69 @@ import Link from 'next/link';
 import Img_wrapper from '../components/Img_wrapper';
 import Sidebar from './Sidebar';
 import { useSelector, useDispatch } from 'react-redux';
-import { is_loading_true } from '../store/menu/action';
 
-const Single_Cluster = ({ title, cluster }) => {
-  const dispatch = useDispatch()
-  const sidebar = useSelector(state => state.sidebar);
-  const menu = useSelector(state => state.menu);
+const Single_Cluster = ({ top_news, cluster }) => {
 
-  function createMarkup(body) {
-    return { __html: body };
-  }
-  console.log(clusters, 'clusters');
+
+  const flipDates = date => {
+    const dates = date.substring(0, 10).split('-');
+    let fliped = `${dates[2]}-${dates[1]}-${dates[0]}`;
+
+    return fliped;
+  };
   return (
-    <div className="container big-container single-page">
-      {menu && menu.is_loading && menu.is_loading && (
-        <div className="spinner-wrapper rounded-circle">
-          <div className="eclipse_spinner"></div>
-        </div>
-      )}
-      <div className="row">
-        <div className="col-12">
+    <div className="container big-container single-cluster">
+
+      <div className="row justify-content-around">
+        {/* <div className="col-12">
           <div className="header p-3 d-flex justify-content-center">
             <h2 className="text-center">{title}</h2>
           </div>
-        </div>
+        </div> */}
         {cluster && (
-          <div className="col-md-9 col-12 main-content">
+          <div className="col-md-7 col-12 main-content">
             <div className="block-region-content">
-              {/* <div className="row mx-0">
-                <div className="col-lg-8 col-md-6 col-12 small-padding ">
-                  <div className="big-cont">
-                    <Img_wrapper
-                      title={cluster[0].title}
-                      img={`${cluster[0].field_naslovna_slika}`}
-                      alt={cluster[0].title}
-                      link={cluster[0].nid}
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-12 px-0 ">
-                  <div className="small-cont">
-                    <div className="small-padding box">
-                      <Img_wrapper
-                        img={`${cluster[1].field_naslovna_slika}`}
-                        title={cluster[1].title}
-                        link={cluster[1].nid}
-                        alt={cluster[1].title}
-                      />
-                    </div>
-                    <div className="small-padding box">
-                      <Img_wrapper
-                        img={`${cluster[2].field_naslovna_slika}`}
-                        title={cluster[2].title}
-                        link={cluster[2].nid}
-                        alt={cluster[2].title}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div> */}
               <div className="row mx-0 mt-2">
                 <div className="col-12 mt-2 px-0 ">
                   {cluster &&
-                    cluster.articles.map(
-                      (article, index) =>
-                     
-                          <div
-                            key={index * 432}
-                            className="row mx-0 kategorija-list-row"
-                          >
-                            <div className="col-md-3 px-0 ">
-                              <Img_wrapper
-                                img={`${article.photo_url}`}
-                                alt={article.title}
-                                link={article.link}
-                              />
-                            </div>
-                            <div className="col-md-9 px-0 px-sm-3">
-                              <div className="views-field views-field-title">
-                                <h3 className="field-content">
-                                  <Link href={`${article.link}`}>
-                                    <a
-                                      onClick={() =>
-                                        dispatch(is_loading_true())
-                                      }
-                                    >
-                                      {article.title}
-                                    </a>
-                                  </Link>
-                                </h3>
-                              </div>
-                              {/* <div className="">
-                                <span className="field-content small-datum">
-                                  {article.created}
-                                </span>
-                              </div> */}
-                              {/* <div className="views-field views-field-body">
-                                <span className="field-content">
-                                  <div
-                                    className="main-content"
-                                    dangerouslySetInnerHTML={createMarkup(article.body)}
-                                  ></div>
-                                </span>
-                              </div> */}
-                            </div>
+                    cluster.articles.map((article, index) => (
+                      <div
+                        key={index * 432}
+                        className="row mx-0 kategorija-list-row"
+                      >
+                        <div className="col-md-4 px-0 ">
+                          <Img_wrapper
+                            img={`${article.photo_url}`}
+                            alt={article.title}
+                            link={article.id}
+                          />
+                        </div>
+                        <div className="col-md-8 px-0 px-sm-3">
+                          <div>
+                            <h3>
+                              <Link href={`/post/${article.id}`}>
+                                <a
+                                  target="_blank"
+                                
+                                >
+                                  {article.title}
+                                </a>
+                              </Link>
+                            </h3>
                           </div>
-                        
-                    )}
+                          <div className="">
+                            <span className="small-datum">
+                              {flipDates(article.time_published)}
+                            </span>
+                          </div>
+                          <div className="views-field views-field-body">
+                            <span className="field-content">
+                              <p>{article.text_content}</p>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                 </div>
                 <div className="col-12 px-0">
                   <ul className="js-pager__items">
@@ -139,11 +95,9 @@ const Single_Cluster = ({ title, cluster }) => {
             </div>
           </div>
         )}
-        {/* <div className="col-md-3">
-          <Sidebar
-            analizi_temi={sidebar.analizi_temi && sidebar.analizi_temi}
-          />
-        </div> */}
+        <div className="col-md-4 col-12">
+          <Sidebar top_news={top_news} />
+        </div>
         <style jsx>{`
           .arrow-right {
             background-image: url(/images/icons/left-arrow.svg);

@@ -31,7 +31,7 @@ const Container_1 = ({ top_news }) => {
                       <Img_wrapper
                         title={news.article.title}
                         img={news.article.photo_url}
-                        link={news.article.link}
+                        link={news.article.id}
                        
                       />
                     </div>

@@ -8,8 +8,8 @@ const Img_wrapper = ({ img, title, alt, link, nadnaslov }) => {
   return (
     <div className="img-wrapper">
       <div className="img-div">
-        <Link href={link}>
-          <a className="" onClick={() => dispatch(is_loading_true())}>
+        <Link href={`/post/${link}`}>
+          <a target="_blank" onClick={() => dispatch(is_loading_true())}>
             <img src={img} alt={title} />
           </a>
         </Link>

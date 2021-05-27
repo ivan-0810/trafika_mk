@@ -1,6 +1,6 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 import Img_wrapper from '../../Img_wrapper';
-import Cont_3_Footer from './Cont_3_Footer';
 import Container_Header from '../../Container_Header';
 import { useDispatch } from 'react-redux';
 import { is_loading_true } from '../../../store/menu/action';
@@ -17,29 +17,30 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
         <div className="col-12 mt-2 pr-0 ">
           {cont_left &&
             cont_left.map((cluster, index) => (
-              <>
+              <Fragment key={index * 5}>
                 {index < 4 && (
                   <div
-                    key={index * 5}
+                    
                     className="row mx-auto cluster mt-sm-2"
                   >
                     <div className="col-4 pl-0 h-100">
                       <Img_wrapper
                         img={cluster.articles[0].photo_url}
                         alt={cluster.articles[0].title}
-                        link={cluster.articles[0].link}
+                        link={cluster.articles[0].id}
                       />
                     </div>
 
                     <div className="col-8 pl-0 d-flex flex-column justify-content-between">
                       {cluster.articles.map((article, inx) => (
-                        <>
+                        <Fragment key={inx * 83632}>
                           {inx === 0 ? (
-                            <>
-                              <h2 key={index * 45632}>
-                                <Link href={article.link}>
+                            <Fragment>
+                              <h2 >
+                                <Link href={`/post/${article.id}`}>
                                   <a
                                     onClick={() => dispatch(is_loading_true())}
+                                    target="_blank"
                                   >
                                     {article.title}
                                   </a>
@@ -48,35 +49,38 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
                               <span className="meduim">
                                 {article.feed.name} - <b>ново</b>
                               </span>
-                            </>
+                            </Fragment>
                           ) : (
                             inx < 4 && (
-                              <div key={index * 43232} className="d-flex align-items-center podnaslov">
-                                <Link href={article.link}>
+                              <div key={inx * 6232} className="d-flex align-items-center podnaslov">
+                                <Link href={`/post/${article.id}`}>
+                                  <a target="_blank">
                                   <p>{article.title}</p>
+                                  </a>
+                                 
                                 </Link>
 
                                 <Medium crta="-" text={article.feed.name} />
                               </div>
                             )
                           )}
-                        </>
+                        </Fragment>
                       ))}
 
                       <div key={index * 42390} className="d-flex align-items-center mediumi">
                         {cluster.articles.map((article, inx_2) => (
-                          <>
+                          <Fragment key={inx_2 * 42230}>
                             {inx_2 > 4 && inx_2 < 9 && (
-                              <Link key={index * 4290} href={article.link} >
-                                <a>
+                              <Link href={`/post/${article.id}`}>
+                                <a target="_blank">
                                   <Medium crta="|" text={article.feed.name} />
                                 </a>
                               </Link>
                             )}
                             
-                          </>
+                          </Fragment>
                         ))}
-                        <Link href={`/${category_link_left}`}>
+                        <Link href={`/cluster/${category_link_left}`}>
                               <a>
                                 <Medium crta="|" text={`сите ${cluster.articles_count} вести`} />
                               </a>
@@ -85,7 +89,7 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
                     </div>
                   </div>
                 )}
-              </>
+              </Fragment>
             ))}
         </div>
       </div>
