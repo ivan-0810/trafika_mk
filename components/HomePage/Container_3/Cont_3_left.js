@@ -12,17 +12,18 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
   return (
     <div className="col-md-6 col-12 mb-5 mb-sm-0">
       <div className="row">
-        <Container_Header header={header} padding="" link={category_link_left} />
+        <Container_Header
+          header={header}
+          padding=""
+          link={category_link_left}
+        />
 
         <div className="col-12 mt-2 pr-0 ">
           {cont_left &&
             cont_left.map((cluster, index) => (
               <Fragment key={index * 5}>
                 {index < 4 && (
-                  <div
-                    
-                    className="row mx-auto cluster mt-sm-2"
-                  >
+                  <div className="row mx-auto cluster mt-sm-2">
                     <div className="col-4 pl-0 h-100">
                       <Img_wrapper
                         img={cluster.articles[0].photo_url}
@@ -36,7 +37,7 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
                         <Fragment key={inx * 83632}>
                           {inx === 0 ? (
                             <Fragment>
-                              <h2 >
+                              <h2>
                                 <Link href={`/post/${article.id}`}>
                                   <a
                                     onClick={() => dispatch(is_loading_true())}
@@ -52,14 +53,15 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
                             </Fragment>
                           ) : (
                             inx < 4 && (
-                              <div key={inx * 6232} className="d-flex align-items-center podnaslov">
+                              <div
+                                key={inx * 6232}
+                                className="podnaslov"
+                              >
                                 <Link href={`/post/${article.id}`}>
                                   <a target="_blank">
-                                  <p>{article.title}</p>
+                                    <p>{article.title}</p>
                                   </a>
-                                 
                                 </Link>
-
                                 <Medium crta="-" text={article.feed.name} />
                               </div>
                             )
@@ -67,7 +69,10 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
                         </Fragment>
                       ))}
 
-                      <div key={index * 42390} className="d-flex align-items-center mediumi">
+                      <div
+                        key={index * 42390}
+                        className="d-flex align-items-center mediumi"
+                      >
                         {cluster.articles.map((article, inx_2) => (
                           <Fragment key={inx_2 * 42230}>
                             {inx_2 > 4 && inx_2 < 9 && (
@@ -77,14 +82,16 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
                                 </a>
                               </Link>
                             )}
-                            
                           </Fragment>
                         ))}
                         <Link href={`/cluster/${category_link_left}`}>
-                              <a>
-                                <Medium crta="|" text={`сите ${cluster.articles_count} вести`} />
-                              </a>
-                            </Link>
+                          <a>
+                            <Medium
+                              crta="|"
+                              text={`сите ${cluster.articles_count} вести`}
+                            />
+                          </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
