@@ -46,7 +46,7 @@ const Menu = () => {
         <div className="container big-container menu">
           <div className="row mx-0 align-items-center menu-titles">
             <div className="col-12 px-0 ">
-              <div className="d-flex flex-lg-row align-items-lg-center flex-column align-items-start justify-content-center">
+              <div className="d-flex flex-lg-row align-items-lg-center flex-column align-items-start justify-content-between">
                 <Link href="/">
                   <a
                     className="logo-link"

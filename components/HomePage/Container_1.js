@@ -5,12 +5,13 @@ import Img_wrapper from '../Img_wrapper';
 import Carousel from '../Carousel';
 
 const Container_1 = ({ top_news }) => {
-  const [carousel_news, setCarouselNews] = useState()
+  const [carousel_news, setCarouselNews] = useState();
   useEffect(() => {
-    let arr = top_news.slice(4);
-    setCarouselNews(arr)
-
-  }, [top_news])
+    if (top_news) {
+      let arr = top_news.slice(4);
+      setCarouselNews(arr);
+    }
+  }, [top_news]);
 
   return (
     <>
@@ -26,12 +27,16 @@ const Container_1 = ({ top_news }) => {
               {top_news.map(
                 (news, index) =>
                   index < 4 && (
-                    <div key={index * 124} className={`col-md-6 col-12 ${index % 2 !== 0 ? 'pl-0' : ''}`}>
+                    <div
+                      key={index * 124}
+                      className={`col-md-6 col-12 ${
+                        index % 2 !== 0 ? 'pl-0' : ''
+                      }`}
+                    >
                       <Img_wrapper
                         title={news.article.title}
                         img={news.article.photo_url}
                         link={news.article.id}
-                       
                       />
                     </div>
                   )

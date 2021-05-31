@@ -26,7 +26,7 @@ const Single_Post = ({ data }) => {
             <Link href="https://www.google.com/">
             <a
               className="close-btn"
-              onClick={() => dispatch(spinner_loading_true())}
+              onClick={() => window.close()}
             >
               x
             </a>

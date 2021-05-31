@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 import { useSelector, useDispatch } from 'react-redux';
 import Medium from '../components/Medium';
 import Paginator from '../components/Paginator';
-import { useHandleSpinner } from '../hooks/useHandleSpinner';
+import { spinner_loading_false } from '../store/spinner/action'
 
 const Single_Page = ({ title, clusters, top_news }) => {
   const dispatch = useDispatch();
@@ -19,7 +19,8 @@ const Single_Page = ({ title, clusters, top_news }) => {
     } else {
       setArticles(clusters);
     }
-  }, []);
+    dispatch(spinner_loading_false());
+  }, [clusters]);
 
   return (
     <div className="container big-container category">
@@ -28,7 +29,7 @@ const Single_Page = ({ title, clusters, top_news }) => {
           <div className="eclipse_spinner"></div>
         </div>
       )}
-      <div className="row justify-content-around">
+      <div className="row">
         <div className="col-12">
           <div className="header">
             <h2 className="text-center">{title}</h2>
@@ -55,7 +56,7 @@ const Single_Page = ({ title, clusters, top_news }) => {
                             <Link href={`/post/${article.id}`}>
                               <a
                                 target="_blank"
-                                onClick={useHandleSpinner}
+                            
                               >
                                 {article.title}
                               </a>
@@ -117,7 +118,7 @@ const Single_Page = ({ title, clusters, top_news }) => {
         </div>
       </div>
       <div className="row">
-        <div className="col-7 px-0">
+        <div className="col-7">
           <Paginator articles={clusters} setArticles={setArticles} />
         </div>
       </div>

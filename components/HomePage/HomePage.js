@@ -18,27 +18,43 @@ const HomePage = () => {
   const [zivot, setZivot] = useState([]);
   const [sport, setSport] = useState([]);
   const [techno, setTechno] = useState([]);
- 
+
   useEffect(() => {
-    const makedonija_flitered = clusters.filter(
-      cluster => cluster.main_category === 'македонија'
-    );
-    const balkan_flitered  = clusters.filter(cluster => cluster.main_category === 'балкан');
-    const svet_flitered  = clusters.filter(cluster => cluster.main_category === 'свет');
-    const biznis_flitered  = clusters.filter(cluster => cluster.main_category === 'бизнис');
-    const zabava_flitered  = clusters.filter(cluster => cluster.main_category === 'забава');
-    const zivot_flitered  = clusters.filter(cluster => cluster.main_category === 'живот');
-    const sport_flitered  = clusters.filter(cluster => cluster.main_category === 'спорт');
-    const techno_flitered  = clusters.filter(cluster => cluster.main_category === 'техно');
-    setMakedonija(makedonija_flitered);
-    setBalkan(balkan_flitered);
-    setSvet(svet_flitered);
-    setBiznis(biznis_flitered);
-    setZabava(zabava_flitered);
-    setZivot(zivot_flitered);
-    setSport(sport_flitered);
-    setTechno(techno_flitered)
-  }, [clusters])
+    if (clusters) {
+      const makedonija_flitered = clusters.filter(
+        cluster => cluster.main_category === 'македонија'
+      );
+      const balkan_flitered = clusters.filter(
+        cluster => cluster.main_category === 'балкан'
+      );
+      const svet_flitered = clusters.filter(
+        cluster => cluster.main_category === 'свет'
+      );
+      const biznis_flitered = clusters.filter(
+        cluster => cluster.main_category === 'бизнис'
+      );
+      const zabava_flitered = clusters.filter(
+        cluster => cluster.main_category === 'забава'
+      );
+      const zivot_flitered = clusters.filter(
+        cluster => cluster.main_category === 'живот'
+      );
+      const sport_flitered = clusters.filter(
+        cluster => cluster.main_category === 'спорт'
+      );
+      const techno_flitered = clusters.filter(
+        cluster => cluster.main_category === 'техно'
+      );
+      setMakedonija(makedonija_flitered);
+      setBalkan(balkan_flitered);
+      setSvet(svet_flitered);
+      setBiznis(biznis_flitered);
+      setZabava(zabava_flitered);
+      setZivot(zivot_flitered);
+      setSport(sport_flitered);
+      setTechno(techno_flitered);
+    }
+  }, [clusters]);
   return (
     <div className="container big-container home-page">
       {spinner && spinner.is_loading && spinner.is_loading && (
@@ -60,23 +76,23 @@ const HomePage = () => {
                 style={{ height: '100px', backgroundColor: 'gray' }}
               >
                 <div className="banner banner-square">
-                <ins data-revive-zoneid='414' data-revive-id='0fdb51aa345f685c34f5913961f2f061'></ins>
-                  <script async src='https://adserver.mk/revive-adserver/www/delivery/asyncjs.php'></script>
+                  {/* <ins data-revive-zoneid='414' data-revive-id='0fdb51aa345f685c34f5913961f2f061'></ins>
+                  <script async src='https://adserver.mk/revive-adserver/www/delivery/asyncjs.php'></script> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <Home_sidebar_banners />
+        {/* <Home_sidebar_banners /> */}
       </div>
 
       <Container_3
         cont_right={balkan}
         cont_left={makedonija}
         header_left="македонија"
-        header_right="балkan"
-        category_link_left="makedonija"
-        category_link_right="balkan"
+        header_right="балkан"
+        category_link_left="македонија"
+        category_link_right="балкан"
       />
 
       <Banners />
@@ -85,8 +101,8 @@ const HomePage = () => {
         cont_left={biznis}
         header_left="свет"
         header_right="бизнис"
-        category_link_left="svet"
-        category_link_right="biznis"
+        category_link_left="свет"
+        category_link_right="бизнис"
       />
 
       <Banners />
@@ -95,8 +111,8 @@ const HomePage = () => {
         cont_left={zivot}
         header_left="забава"
         header_right="живот"
-        category_link_left="zabava"
-        category_link_right="zivot"
+        category_link_left="забава"
+        category_link_right="живот"
       />
 
       <Banners />
@@ -105,8 +121,8 @@ const HomePage = () => {
         cont_left={sport}
         header_left="спорт"
         header_right="техно"
-        category_link_left="sport"
-        category_link_right="techno"
+        category_link_left="спорт"
+        category_link_right="техно"
       />
 
       <Banners />
