@@ -2,7 +2,8 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Menu from './Menu/Menu';
-import { spinner_loading_false } from '../store/spinner/action'
+import { spinner_loading_false } from '../store/spinner/action';
+import Footer from './footer/Footer';
 
 const Layout = props => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const Layout = props => {
   return (
     <div className="content-wrapper p-0">
       <Head>
-      <meta name="description" content="..trafika" />
+        <meta name="description" content="..trafika" />
         <meta
           name="robots"
           content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
@@ -27,11 +28,12 @@ const Layout = props => {
         <meta property="og:site_name" content="Весник" />
         <title>Trafika.mk</title>
         <link rel="shortcut icon" href="/vesnik-favicon.svg" />
-        <link rel="icon" href="/vesnik-favicon.svg"/>
+        <link rel="icon" href="/vesnik-favicon.svg" />
       </Head>
       <Menu />
 
       <main className="main-content">{props.children}</main>
+      <Footer />
     </div>
   );
 };

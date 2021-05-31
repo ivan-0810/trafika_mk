@@ -13,10 +13,6 @@
     text-transform: uppercase;
     color: #fff;
     font-family: 'pt sans narrow', sans-serif;
-    &:hover {
-      color: $red;
-      cursor: pointer;
-    }
   }
 
   .analizi-temi {
@@ -32,9 +28,10 @@
       overflow: hidden;
       padding: 10px 0;
       .field-content {
-        
+     
         a img {
           border: 1px solid #b9b9b9;
+      
           width: 100px;
           height: 74px;
           object-fit: cover;

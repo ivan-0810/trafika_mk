@@ -42,15 +42,8 @@ const Menu = () => {
 
   return (
     <>
-      <MyModal
-        inputVal={inputVal}
-        modalShow={modalShow}
-        handleSearch={handleSearch}
-        setModalShow={setModalShow}
-        submitInput={submitInput}
-      />
-      <div className="container-fluid menu_2">
-        <div className="big-container">
+  
+        <div className="container big-container menu">
           <div className="row mx-0 align-items-center menu-titles">
             <div className="col-12 px-0 ">
               <div className="d-flex flex-lg-row align-items-lg-center flex-column align-items-start justify-content-center">
@@ -115,7 +108,7 @@ const Menu = () => {
             </div>
           </div>
         </div>
-      </div>
+     
     </>
   );
 };

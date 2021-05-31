@@ -1,13 +1,10 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 import { spinner_loading_true } from '../store/spinner/action';
-import trafika_png from '../styles/assets/images/TRAFIKA.mk.png';
+
+import logo from '../styles/assets/images/trafika_logo.png';
 const Sidebar = ({ top_news }) => {
   const dispatch = useDispatch();
-  const addDefaultSrc = (ev) => {
-    ev.target.src = trafika_png
-  }
   return (
     <div className="sidebar rwo-mx-0 flex-column">
       <div className="row mx-0 ">
@@ -24,8 +21,11 @@ const Sidebar = ({ top_news }) => {
                     <Link href={`/cluster/${news.cluster_id}`}>
                       <a onClick={() => dispatch(spinner_loading_true())}>
                         <img
-                          onError={(e)=> e.target.src=`${trafika_png}`}
-                          src={`${ news.article.photo_url}` }
+                          onError={e => {
+                            e.target.src = `${logo}`;
+                            e.target.style.objetFit = `contain`;
+                          }}
+                          src={`${news.article.photo_url}`}
                           alt={news.article.title}
                         />
                       </a>

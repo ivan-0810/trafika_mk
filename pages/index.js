@@ -37,7 +37,6 @@ export const getServerSideProps = wrapper.getServerSideProps(
   
         });
       });
-      console.log(clusters, 'slusters');
       store.dispatch(get_all_clusters(clusters));
       store.dispatch(get_top_news(top_news));
     } catch (error) {

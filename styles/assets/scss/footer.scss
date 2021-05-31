@@ -1,0 +1,21 @@
+.footer{
+    padding: 40px 20px;
+    background-color: $red;
+    .footer-logo{
+        width: 150px;
+        height: 53px;
+        background-image: url('../images/Trafika_Logo_Plavo.svg');
+        @include background (center, no-repeat , contain);
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    a, p, span{
+        color: $white;
+    }
+    .social-contant{
+        margin-bottom: 20px;
+        .item:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+}

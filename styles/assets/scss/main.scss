@@ -6,12 +6,13 @@
 @import './_menu';
 @import './homepage';
 @import './carousel';
-@import './footer';
 @import './single_page';
 @import './single_post';
 @import './sidebar';
 @import './modal';
 @import './single_cluster';
+@import './footer.scss';
+
 
 body {
   font-family: 'PT Sans', sans-serif;

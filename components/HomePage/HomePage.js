@@ -39,7 +39,6 @@ const HomePage = () => {
     setSport(sport_flitered);
     setTechno(techno_flitered)
   }, [clusters])
-
   return (
     <div className="container big-container home-page">
       {spinner && spinner.is_loading && spinner.is_loading && (
