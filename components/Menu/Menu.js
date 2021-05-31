@@ -95,7 +95,7 @@ const Menu = () => {
                         }`}
                       >
                         <Link href={`/category/${item.title}`}>
-                          <a onClick={handleSpinner(`/${item.title}`)}>
+                          <a onClick={() =>handleSpinner(`/${item.title}`)}>
                             {item.title}
                           </a>
                         </Link>

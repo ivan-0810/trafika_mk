@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Menu from './Menu/Menu';
 import { spinner_loading_false } from '../store/spinner/action'
 
@@ -9,6 +9,7 @@ const Layout = props => {
   useEffect(() => {
     dispatch(spinner_loading_false());
   }, []);
+
   return (
     <div className="content-wrapper p-0">
       <Head>
