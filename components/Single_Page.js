@@ -3,52 +3,27 @@ import Link from 'next/link';
 import Img_wrapper from '../components/Img_wrapper';
 import Sidebar from './Sidebar';
 import { useSelector, useDispatch } from 'react-redux';
-import { is_loading_true } from '../store/menu/action';
 import Medium from '../components/Medium';
+import Paginator from '../components/Paginator';
+import { useHandleSpinner } from '../hooks/useHandleSpinner';
 
 const Single_Page = ({ title, clusters, top_news }) => {
   const dispatch = useDispatch();
-  const [actualClusters, setActualClusters] = useState();
-  const [indexOfFirstCluster, setIndexOfFirstCluster] = useState(0)
-  const [indexOfLastCluster, setIndexOfLastCluster] = useState(9)
-  const menu = useSelector(state => state.menu);
+  const [articles, setArticles] = useState();
+  const spinner = useSelector(state => state.spinner);
 
   useEffect(() => {
-    let arr = clusters.slice(0,10)
-    setActualClusters(arr);
-  }, []);
-
-  // Change page
-  const paginatePrev = () => {
-      if(indexOfFirstCluster === 0) {
-        let arr = clusters.slice(0,10)
-        setActualClusters(arr);
-      }else {
-        setIndexOfFirstCluster(prevState => prevState - 10);
-        setIndexOfLastCluster(prevState => prevState - 10);
-        let arr = clusters.slice(indexOfFirstCluster,indexOfLastCluster)
-        setActualClusters(arr)
-      }
-      return;
-  };
-
-  const paginateNext = () => {
-    const last_clusters_of_arr = clusters.length - indexOfLastCluster;
-    if(last_clusters_of_arr < 10) {
-      let arr = clusters.slice(indexOfLastCluster)
-      setActualClusters(arr)
-    }else {
-      setIndexOfFirstCluster(prevState => prevState + 10);
-      setIndexOfLastCluster(prevState => prevState + 10);
-      let arr = clusters.slice(indexOfFirstCluster,indexOfLastCluster)
-      setActualClusters(arr)
+    if (clusters.length > 10) {
+      let arr = clusters.slice(0, 10);
+      setArticles(arr);
+    } else {
+      setArticles(clusters);
     }
-   return;
-  }
+  }, []);
 
   return (
     <div className="container big-container category">
-      {menu && menu.is_loading && menu.is_loading && (
+      {spinner && spinner.is_loading && spinner.is_loading && (
         <div className="spinner-wrapper rounded-circle">
           <div className="eclipse_spinner"></div>
         </div>
@@ -60,8 +35,8 @@ const Single_Page = ({ title, clusters, top_news }) => {
           </div>
         </div>
         <div className="col-md-7 col-12">
-          {actualClusters &&
-            actualClusters.map((cluster, index) => (
+          {articles &&
+            articles.map((cluster, index) => (
               <div key={index * 243} className="row mx-auto cluster mt-sm-2">
                 <div className="col-4 pl-0 h-100">
                   <Img_wrapper
@@ -78,7 +53,10 @@ const Single_Page = ({ title, clusters, top_news }) => {
                         <Fragment>
                           <h2>
                             <Link href={`/post/${article.id}`}>
-                              <a target="_blank" onClick={() => dispatch(is_loading_true())}>
+                              <a
+                                target="_blank"
+                                onClick={useHandleSpinner}
+                              >
                                 {article.title}
                               </a>
                             </Link>
@@ -95,9 +73,8 @@ const Single_Page = ({ title, clusters, top_news }) => {
                           >
                             <Link href={`/post/${article.id}`}>
                               <a target="_blank">
-                              <p>{article.title}</p>
+                                <p>{article.title}</p>
                               </a>
-                             
                             </Link>
 
                             <Medium crta="-" text={article.feed.name} />
@@ -141,17 +118,7 @@ const Single_Page = ({ title, clusters, top_news }) => {
       </div>
       <div className="row">
         <div className="col-7 px-0">
-          <ul className="js-pager__items">
-            <li className="prev-list mr-2">
-        
-              <button className="btn-arrow" onClick={paginatePrev}>&#8249;</button>
-            </li>
-
-            <li className="next-list ml-2">
-          
-              <button className="btn-arrow" onClick={paginateNext}>&#8250;</button>
-            </li>
-          </ul>
+          <Paginator articles={clusters} setArticles={setArticles} />
         </div>
       </div>
     </div>

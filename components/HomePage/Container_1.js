@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
 import Img_wrapper from '../Img_wrapper';
-import { is_loading_true } from '../../store/menu/action';
 import Carousel from '../Carousel';
 
 const Container_1 = ({ top_news }) => {

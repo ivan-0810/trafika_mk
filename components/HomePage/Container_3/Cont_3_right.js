@@ -4,7 +4,7 @@ import Container_Header from '../../Container_Header';
 import Img_wrapper from '../../Img_wrapper';
 import Medium from '../../Medium';
 import { useDispatch } from 'react-redux';
-import { is_loading_true } from '../../../store/menu/action';
+import { spinner_loading_true } from '../../../store/spinner/action'
 
 const Cont_3_Right = ({ cont_right, header, category_link_right }) => {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const Cont_3_Right = ({ cont_right, header, category_link_right }) => {
                                 <Link href={`/post/${article.id}`}>
                                   <a
                                   target="_blank"
-                                    onClick={() => dispatch(is_loading_true())}
+                                    onClick={() => dispatch(spinner_loading_true())}
                                   >
                                     {article.title}
                                   </a>

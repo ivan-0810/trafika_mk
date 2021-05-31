@@ -2,7 +2,7 @@
   margin-top: 153px;
 
   .header {
-    @include display-flex(flex, row, start, center);
+    @include display-flex(flex, row, flex-start, center);
     margin-left: 30px;
     margin-bottom: 10px;
     h2 {
@@ -22,44 +22,6 @@
     height: 200px;
   }
 
-  .js-pager__items {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $red;
-    list-style-type: none;
-    padding-left: 0px;
-    li,
-    a,
-    button {
-      height: 50px;
-    }
-    .btn-arrow {
-      font-size: 2.4rem;
-      background-color: transparent;
-      color: $white;
-      border: none;
-      margin-top: -7px;
-    }
-    .visually-hidden {
-      position: absolute!important;
-      overflow: hidden;
-      clip: rect(1px,1px,1px,1px);
-      width: 1px;
-      height: 1px;
-      word-wrap: normal;
-  }
-  }
-  // .visually-hidden {
-  //     position: absolute!important;
-  //     overflow: hidden;
-  //     clip: rect(1px,1px,1px,1px);
-  //     width: 1px;
-  //     height: 1px;
-  //     word-wrap: normal;
-  // }
 }
 
 @media (max-width: 576.98px) {

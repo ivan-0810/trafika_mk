@@ -1,10 +1,22 @@
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Img_wrapper from '../components/Img_wrapper';
 import Sidebar from './Sidebar';
 import { useSelector, useDispatch } from 'react-redux';
+import Paginator from '../components/Paginator';
 
 const Single_Cluster = ({ top_news, cluster }) => {
+  const [articles, setArticles] = useState();
 
+  useEffect(() => {
+    if(cluster.articles.length > 10) {
+      let arr = cluster.articles.slice(0, 10);
+      setArticles(arr);
+    }else {
+      setArticles(cluster.articles)
+    }
+   
+  }, []);
 
   const flipDates = date => {
     const dates = date.substring(0, 10).split('-');
@@ -12,22 +24,19 @@ const Single_Cluster = ({ top_news, cluster }) => {
 
     return fliped;
   };
+
+
+ 
   return (
     <div className="container big-container single-cluster">
-
       <div className="row justify-content-around">
-        {/* <div className="col-12">
-          <div className="header p-3 d-flex justify-content-center">
-            <h2 className="text-center">{title}</h2>
-          </div>
-        </div> */}
-        {cluster && (
+        {articles && (
           <div className="col-md-7 col-12 main-content">
             <div className="block-region-content">
               <div className="row mx-0 mt-2">
                 <div className="col-12 mt-2 px-0 ">
-                  {cluster &&
-                    cluster.articles.map((article, index) => (
+                  {
+                    articles.map((article, index) => (
                       <div
                         key={index * 432}
                         className="row mx-0 kategorija-list-row"
@@ -43,12 +52,7 @@ const Single_Cluster = ({ top_news, cluster }) => {
                           <div>
                             <h3>
                               <Link href={`/post/${article.id}`}>
-                                <a
-                                  target="_blank"
-                                
-                                >
-                                  {article.title}
-                                </a>
+                                <a target="_blank">{article.title}</a>
                               </Link>
                             </h3>
                           </div>
@@ -57,55 +61,26 @@ const Single_Cluster = ({ top_news, cluster }) => {
                               {flipDates(article.time_published)}
                             </span>
                           </div>
-                          <div className="views-field views-field-body">
-                            <span className="field-content">
-                              <p>{article.text_content}</p>
-                            </span>
+                          <div className="">
+                            <p>{article.text_content}</p>
                           </div>
                         </div>
                       </div>
                     ))}
                 </div>
-                <div className="col-12 px-0">
-                  <ul className="js-pager__items">
-                    <li className="prev-list mr-2">
-                      <a
-                        href="/views/ajax?page=0"
-                        title="Go to previous page"
-                        rel="prev"
-                      >
-                        <span className="visually-hidden">Previous page</span>
-                        <button className="btn-arrow">&#8249;</button>
-                      </a>
-                    </li>
-
-                    <li className="next-list ml-2">
-                      <a
-                        href="/views/ajax?page=2"
-                        title="Go to next page"
-                        rel="next"
-                      >
-                        <span className="visually-hidden">Next page</span>
-                        <button className="btn-arrow">&#8250;</button>
-                      </a>
-                    </li>
-                  </ul>
+              
+                  <div className="col-12 px-0">
+                    <Paginator  articles={cluster.articles} setArticles={setArticles}/>
+          
+                  </div>
                 </div>
+               </div>
               </div>
-            </div>
-          </div>
+           
         )}
         <div className="col-md-4 col-12">
           <Sidebar top_news={top_news} />
         </div>
-        <style jsx>{`
-          .arrow-right {
-            background-image: url(/images/icons/left-arrow.svg);
-          }
-          .arrow-left {
-            background-image: url(/images/icons/left-arrow.svg);
-          }
-        `}</style>
       </div>
     </div>
   );

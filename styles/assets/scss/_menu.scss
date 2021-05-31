@@ -309,8 +309,8 @@
       -webkit-box-direction: normal;
           -ms-flex-direction: column;
               flex-direction: column;
-      -webkit-box-align: start;
-          -ms-flex-align: start;
+      -webkit-box-align:flex-start;
+          -ms-flex-align: flex-start;
               align-items: flex-start;
       margin: 0px;
       height: 0px;
@@ -338,14 +338,5 @@
     }
   }
 }
-@media (max-width: 768.98px) {
-.menu_2 {
- 
-}
-}
-@media (max-width: 576.98px) {
-.menu_2 {
- 
-}
-}
+
 

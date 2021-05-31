@@ -2,12 +2,12 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Menu from './Menu/Menu';
-import { is_loading_false } from '../store/menu/action';
+import { spinner_loading_false } from '../store/spinner/action'
 
 const Layout = props => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(is_loading_false());
+    dispatch(spinner_loading_false());
   }, []);
   return (
     <div className="content-wrapper p-0">

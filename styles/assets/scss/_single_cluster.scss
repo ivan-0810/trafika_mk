@@ -13,6 +13,11 @@
     font-size: 1.7rem;
     font-weight: 700;
     font-family: pt sans narrow, sans-serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0px;
     a {
       color: $black;
       font-size: 1.7rem;

@@ -9,7 +9,7 @@ import Home_sidebar_banners from './Home_sidebar_banners';
 const HomePage = () => {
   const home = useSelector(state => state.home_page);
   const { clusters, top_news } = home;
-  const menu = useSelector(state => state.menu);
+  const spinner = useSelector(state => state.spinner);
   const [makedonija, setMakedonija] = useState([]);
   const [balkan, setBalkan] = useState([]);
   const [svet, setSvet] = useState([]);
@@ -42,7 +42,7 @@ const HomePage = () => {
 
   return (
     <div className="container big-container home-page">
-      {menu && menu.is_loading && menu.is_loading && (
+      {spinner && spinner.is_loading && spinner.is_loading && (
         <div className="spinner-wrapper rounded-circle">
           <div className="eclipse_spinner"></div>
         </div>

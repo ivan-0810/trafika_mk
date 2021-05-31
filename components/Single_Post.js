@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
-import { is_loading_true } from '../store/menu/action';
+import { spinner_loading_true } from '../store/spinner/action';
 
 
 const Single_Post = ({ data }) => {
 
-  const menu = useSelector(state => state.menu);
+  const spinner = useSelector(state => state.spinner);
   const dispatch = useDispatch();
- console.log(data, 'data');
+
   return (
     <>
     <div className="container-fluid single-post">
-      {menu && menu.is_loading && menu.is_loading && (
+      {spinner && spinner.is_loading && spinner.is_loading && (
         <div className="spinner-wrapper rounded-circle">
           <div className="eclipse_spinner"></div>
         </div>
@@ -20,13 +20,13 @@ const Single_Post = ({ data }) => {
       <div className="row mx-0">
         <div className="col-12 px-0">
           <div className="top-content">
-            <Link href="/">
+            <Link href="https://www.google.com/">
               <a>trafika.mk</a>
             </Link>
-            <Link href="/">
+            <Link href="https://www.google.com/">
             <a
               className="close-btn"
-              onClick={() => dispatch(is_loading_true())}
+              onClick={() => dispatch(spinner_loading_true())}
             >
               x
             </a>
@@ -39,7 +39,7 @@ const Single_Post = ({ data }) => {
      
     </div>
     <div className="container-fluid i-frame px-0">
-      <iframe src="https://samozdravje.mk/mz-vchera-se-aplitsirani-6-940-vaktsini/"></iframe>
+      <iframe src={data.link}></iframe>
     </div>
     </>
   );

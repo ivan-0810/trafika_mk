@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useDispatch } from 'react-redux'
-import { is_loading_true } from '../store/menu/action'
+import { spinner_loading_true } from '../store/spinner/action'
 
 const Container_Header = ({ header, padding, link }) => {
   const dispatch = useDispatch();
@@ -8,7 +8,7 @@ const Container_Header = ({ header, padding, link }) => {
     <div className={`col-12 my-2 ${padding}`}>
       <div className="container_header">
         <Link href={`/category/${link}`}>
-          <a onClick={() => dispatch(is_loading_true())}>
+          <a onClick={() => dispatch(spinner_loading_true())}>
             <h2
               className="m-0 pl-4 py-2"
               

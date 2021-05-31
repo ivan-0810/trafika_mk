@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import Link from 'next/link';
-
 import MyModal from '../Modal';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
-import { is_loading_true } from '../../store/menu/action';
+import { spinner_loading_true } from '../../store/spinner/action';
 import { isEmpty} from 'lodash';
 import { useWindowSize } from '../../hooks/UseWindowSize';
 import { useRouter } from 'next/router';
 import { menu_titles } from '../../constants/Menu_Items';
-import logo from '../../styles/assets/images/TRAFIKA.mk.svg';
+import logo from '../../styles/assets/images/Trafika_Logo_Plavo.svg';
+
 const Menu = () => {
 
   const [modalShow, setModalShow] = useState(false);
@@ -18,12 +18,10 @@ const Menu = () => {
   const [showMenu, setShowMenu] = useState(false);
   const windowSize = useWindowSize();
   const router = useRouter();
-  const { asPath } = router;
+  const { asPath, query} = router;
   let single_title = asPath.slice(1);
 
   const submitInput = () => {
-    // console.log('zdravo');
-    // dispatch(get_search_value());
     if (!isEmpty(inputVal)) {
       setInputVal('');
       setModalShow(false);
@@ -36,6 +34,12 @@ const Menu = () => {
       setModalShow(false);
     }
   };
+  const handleSpinner = slug => {
+    if (query.slug !== slug) {
+      dispatch(spinner_loading_true());
+    }
+  };
+
   return (
     <>
       <MyModal
@@ -53,7 +57,7 @@ const Menu = () => {
                 <Link href="/">
                   <a
                     className="logo-link"
-                    onClick={() => dispatch(is_loading_true())}
+                    onClick={() => dispatch(spinner_loading_true())}
                   >
                     <div className="main-logo d-flex justify-content-center align-items-center">
                       <Image
@@ -91,7 +95,7 @@ const Menu = () => {
                         }`}
                       >
                         <Link href={`/category/${item.title}`}>
-                          <a onClick={() => dispatch(is_loading_true())}>
+                          <a onClick={handleSpinner(`/${item.title}`)}>
                             {item.title}
                           </a>
                         </Link>

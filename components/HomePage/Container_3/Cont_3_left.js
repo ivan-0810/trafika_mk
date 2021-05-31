@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Img_wrapper from '../../Img_wrapper';
 import Container_Header from '../../Container_Header';
 import { useDispatch } from 'react-redux';
-import { is_loading_true } from '../../../store/menu/action';
+import { spinner_loading_true } from '../../../store/spinner/action'
 import Medium from '../../Medium';
 
 const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
@@ -40,7 +40,7 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
                               <h2>
                                 <Link href={`/post/${article.id}`}>
                                   <a
-                                    onClick={() => dispatch(is_loading_true())}
+                                    onClick={() => dispatch(spinner_loading_true())}
                                     target="_blank"
                                   >
                                     {article.title}

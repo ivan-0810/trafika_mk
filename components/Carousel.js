@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment } from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
-import { is_loading_true } from '../store/menu/action';
+import { spinner_loading_true } from '../store/spinner/action';
 import { useWindowSize } from '../hooks/UseWindowSize';
 
 const Carousel_Cont = ({ carousel_news, isCarousel_2, cards_num }) => {
@@ -38,7 +38,7 @@ const Carousel_Cont = ({ carousel_news, isCarousel_2, cards_num }) => {
             <section key={index * 6432} className="img-wrapper">
               <div className="img-div">
                 <Link href={`/post/${news.article.id}`}>
-                  <a target="_blank" onClick={() => dispatch(is_loading_true())}>
+                  <a target="_blank" onClick={() => dispatch(spinner_loading_true())}>
                     <img src={`${news.article.photo_url}`} alt={news.article.title} />
                   </a>
                 </Link>

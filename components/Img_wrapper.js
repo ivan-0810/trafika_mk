@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
-import { is_loading_true } from '../store/menu/action';
+import { spinner_loading_true } from '../store/spinner/action';
 
 const Img_wrapper = ({ img, title, alt, link, nadnaslov }) => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const Img_wrapper = ({ img, title, alt, link, nadnaslov }) => {
     <div className="img-wrapper">
       <div className="img-div">
         <Link href={`/post/${link}`}>
-          <a target="_blank" onClick={() => dispatch(is_loading_true())}>
+          <a target="_blank" onClick={() => dispatch(spinner_loading_true())}>
             <img src={img} alt={title} />
           </a>
         </Link>
