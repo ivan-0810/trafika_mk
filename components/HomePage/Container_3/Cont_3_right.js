@@ -9,7 +9,7 @@ import { spinner_loading_true } from '../../../store/spinner/action'
 const Cont_3_Right = ({ cont_right, header, category_link_right }) => {
   const dispatch = useDispatch();
   return (
-    <div className="col-md-6 col-12 px-0">
+    <div className="col-lg-6 col-12 px-0">
       <div className="row">
         <Container_Header
           header={header}

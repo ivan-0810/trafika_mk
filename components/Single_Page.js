@@ -112,16 +112,17 @@ const Single_Page = ({ title, clusters, top_news }) => {
                 </div>
               </div>
             ))}
+            <div className="row mx-0">
+              <div className="col-12 px-0">
+              <Paginator articles={clusters} setArticles={setArticles} />
+              </div>
+            </div>
         </div>
         <div className="col-md-4 col-12">
           <Sidebar top_news={top_news} />
         </div>
       </div>
-      <div className="row">
-        <div className="col-7">
-          <Paginator articles={clusters} setArticles={setArticles} />
-        </div>
-      </div>
+    
     </div>
   );
 };

@@ -10,7 +10,7 @@ const Cont_3_Left = ({ cont_left, header, category_link_left }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="col-md-6 col-12 mb-5 mb-sm-0">
+    <div className="col-lg-6 col-12 mb-5 mb-sm-0 px-0 px-md-3">
       <div className="row">
         <Container_Header
           header={header}

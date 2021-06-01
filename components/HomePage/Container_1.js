@@ -20,6 +20,7 @@ const Container_1 = ({ top_news }) => {
           <div className="col-12 homepage-carousel">
             <h3>топ вести</h3>
             <Carousel carousel_news={carousel_news} />
+         
           </div>
 
           <div className="col-12 px-0">
@@ -29,8 +30,8 @@ const Container_1 = ({ top_news }) => {
                   index < 4 && (
                     <div
                       key={index * 124}
-                      className={`col-md-6 col-12 ${
-                        index % 2 !== 0 ? 'pl-0' : ''
+                      className={`col-md-6 col-12 mb-3 mb-md-0 ${
+                        index % 2 !== 0 ? 'pl-lg-0' : ''
                       }`}
                     >
                       <Img_wrapper

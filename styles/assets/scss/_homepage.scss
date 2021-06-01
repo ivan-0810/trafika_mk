@@ -37,8 +37,9 @@
 }
 @media (max-width: 576.98px) {
   .home-page {
-    .img-wrapper {
-      height: 240px;
+    margin-top: 80px;
+    .big-cont {
+      width: 100%;
     }
     .container_1 .big-cont {
       height: 240px;
@@ -46,9 +47,10 @@
 
     .container_3 {
       .cluster {
-        height: 120px;
-        .img-wrapper {
-          height: 60px;
+        height: 200px;
+    
+        .mediumi{
+          flex-wrap: wrap;
         }
       }
     }

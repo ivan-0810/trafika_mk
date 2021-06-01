@@ -65,41 +65,26 @@
   }
 }
 @media (max-width: 576.98px) {
-  .carousel {
-    padding: 0 1.5px;
-    .img-wrapper {
-      height: 240px;
-    }
-    .itemWrapper:not(:last-child) {
-      margin: 0px;
-    }
-    .wrapper {
-      width: 100%;
-      position: relative;
-    }
-    &::after {
-      content: '';
-      height: 40px;
-      width: 99%;
-      background-color: $white;
-      position: absolute;
-      bottom: -42px;
-      z-index: 1;
-    }
-    .chevron {
-      height: 26px;
-      top: 244px;
-      z-index: 2;
-      background-color: transparent;
-      button {
-        color: $black;
-      }
-    }
-    .chevron_right {
-      right: 35% !important;
-    }
-    .chevron_left {
-      left: 35% !important;
-    }
+.homepage-carousel {
+  position: relative;
+  padding-bottom: 40px;
+
+  .chevron {
+    position: absolute;
+    height: 37px;
+    bottom: -25px;
   }
+  .chevron_left {
+    left: 44%;
+    transform: translate(-50%, 0);
+  }
+  .chevron_right {
+    left: 56%;
+    transform: translate(-50%, 0);
+  }
+  .img-wrapper {
+    height: 300px;
+  }
+
+}
 }

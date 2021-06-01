@@ -10,7 +10,7 @@ const Container_3 = ({
   category_link_right,
 }) => {
   return (
-    <div className="container_3 row">
+    <div className="container_3 row mx-0">
       <Cont_3_Left
         cont_left={cont_left}
         header={header_left}

@@ -63,11 +63,11 @@ const HomePage = () => {
         </div>
       )}
 
-      <div className="row">
-        <div className="col-lg-3  pr-sm-0 col-12">
+      <div className="row flex-column-reverse flex-lg-row mx-0">
+        <div className="col-lg-3 col-12 px-0 pr-md-3">
           <Sidebar top_news={top_news} />
         </div>
-        <div className="col-md-6  col-12">
+        <div className="col-lg-6 col-12 px-0">
           <Container1 top_news={top_news} />
           <div className="row ">
             <div className="col-12">

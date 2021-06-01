@@ -42,3 +42,51 @@
       margin-bottom: 0px;
   }
 }
+@media (max-width: 576.98px) {
+  .single-cluster {
+    margin-top: 50px;
+    .kategorija-list-row{
+        height: auto;
+        margin-bottom: 25px;
+    }
+    .img-wrapper{
+      height: 200px;
+      margin-bottom: 5px;
+        .img-div{
+            height: 200px;
+        }
+    }
+    h3 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      font-family: pt sans narrow, sans-serif;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0px;
+      a {
+        color: $black;
+        font-size: 1.7rem;
+        font-weight: 700;
+        font-family: pt sans narrow, sans-serif;
+        text-decoration: none;
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+    .small-datum{
+        color: $red;
+        font-size: 0.9rem;
+    }
+    p{
+        font-size: 1.1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 0px;
+    }
+  }
+}

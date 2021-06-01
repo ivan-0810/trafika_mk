@@ -5,7 +5,7 @@ const Banners = () => {
         <div className="row small-padding my-2 mx-0">
         <div className="col-12 px-0">
           <div className="row mx-0">
-            <div className="col-3">
+            <div className="col-md-3 col-12">
               <div
                 className="banner_2 my-2"
                 style={{ height: '250px', width:'300px', backgroundColor: 'gray' }}
@@ -27,7 +27,7 @@ const Banners = () => {
                 </div>
               </div>
             </div>
-            <div className="col-3 px-0">
+            <div className="col-md-3 col-12">
               <div
                 className="banner_2 my-2"
                 style={{ height: '250px', width:'300px', backgroundColor: 'gray' }}
@@ -35,7 +35,7 @@ const Banners = () => {
                 baneri
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-md-3 col-12">
               <div
                 className="banner_2 my-2"
                 style={{ height: '250px', width:'300px', backgroundColor: 'gray' }}
@@ -43,7 +43,7 @@ const Banners = () => {
                 baneri
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-md-3 col-12">
               <div
                 className="banner_2 my-2"
                 style={{ height: '250px', width:'300px', backgroundColor: 'gray' }}

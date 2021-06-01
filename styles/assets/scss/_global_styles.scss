@@ -159,9 +159,9 @@ h2 {
   transform: translate(-50%, -50%);
   z-index: 999;
   background-color: $black;
-  box-shadow: -1px 5px 43px -3px rgb(0, 0, 0, 0.15 );
-  -webkit-box-shadow: -1px 5px 43px -3px rgb(0, 0, 0, 0.15 );
-  -moz-box-shadow: -1px 5px 43px -3px rgb(0, 0, 0, 0.15 );
+  box-shadow: -1px 5px 43px -3px rgb(0, 0, 0, 0.15);
+  -webkit-box-shadow: -1px 5px 43px -3px rgb(0, 0, 0, 0.15);
+  -moz-box-shadow: -1px 5px 43px -3px rgb(0, 0, 0, 0.15);
 }
 
 .eclipse_spinner {
@@ -176,8 +176,8 @@ h2 {
 .sidebar-banner {
   width: 300px;
   height: 250px;
-  max-width: 100%!important;
-  max-height: 100%!important;
+  max-width: 100% !important;
+  max-height: 100% !important;
   background-color: $gray--50;
   color: $white;
   margin-bottom: 15px;
@@ -189,28 +189,33 @@ h2 {
     width: 100%;
   }
 }
+.banner_2 {
+  width: 300px;
+  height: 250px;
+  background-color: gray;
+}
 
 .cluster {
   padding: 10px 1.5px;
-   height:180px;
-   margin-bottom: 15px;
-   .img-wrapper{
-     .img-div{
-       height: 100%;
-     }
-   }
+  height: 180px;
+  margin-bottom: 15px;
+  .img-wrapper {
+    .img-div {
+      height: 100%;
+    }
+  }
   h2 {
     font-size: 1.2rem;
     line-height: 1.2;
     font-weight: 700;
-    font-family: "pt sans narrow",sans-serif;
+    font-family: 'pt sans narrow', sans-serif;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: 0px;
     a {
-      font-family: "pt sans narrow",sans-serif;
+      font-family: 'pt sans narrow', sans-serif;
       color: $black;
       font-size: 1.2rem;
       line-height: 1.2;
@@ -221,74 +226,69 @@ h2 {
       }
     }
   }
-  .podnaslov{
-    @include display-flex(flex, row,space-between, center);
-    a{
+  .podnaslov {
+    @include display-flex(flex, row, space-between, center);
+    a {
       color: $black;
       width: 73%;
     }
-    p{
+    p {
       font-size: 0.9rem;
       margin-bottom: 0px;
       display: block;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
-    
-      &:hover{
+
+      &:hover {
         color: $red;
         cursor: pointer;
       }
     }
-    span{
+    span {
       width: 100%;
       margin-top: 2px;
       font-size: 0.8rem;
     }
-    .medium{
-     width: 25%;
+    .medium {
+      width: 25%;
     }
   }
   .mediumi {
-    
-     display: -webkit-box;
-     -webkit-line-clamp: 1;
-     -webkit-box-orient: vertical;
-     overflow: hidden;
-    
-     a{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    a {
       color: $green;
       margin-right: 5px;
-      @include display-flex( flex , 'row', center, center);
-      &:first-child{
-        .crta{
+      @include display-flex(flex, 'row', center, center);
+      &:first-child {
+        .crta {
           display: none;
         }
       }
       &:last-child {
-       
-        span{
+        span {
           position: relative;
-          &:after{
-           content: '\00BB';
-           width: 18px;
-           height: auto;
-           color: $green;
-           position: absolute;
-           right:-21px;
-         }
+          &:after {
+            content: '\00BB';
+            width: 18px;
+            height: auto;
+            color: $green;
+            position: absolute;
+            right: -21px;
+          }
         }
       }
-      
-     }
-     span{
-       cursor: pointer;
-     }
-     
-    
+    }
+    span {
+      cursor: pointer;
+    }
   }
-  .medium{
-    @include display-flex(flex, row,center, center);
+  .medium {
+    @include display-flex(flex, row, center, center);
   }
 }
 .js-pager__items {
@@ -313,11 +313,65 @@ h2 {
     margin-top: -7px;
   }
   .visually-hidden {
-    position: absolute!important;
+    position: absolute !important;
     overflow: hidden;
-    clip: rect(1px,1px,1px,1px);
+    clip: rect(1px, 1px, 1px, 1px);
     width: 1px;
     height: 1px;
     word-wrap: normal;
+  }
 }
+@media (max-width: 576.98px) {
+  .big-container {
+    max-width: 100%;
+  }
+  .sidebar-banner {
+    width: 80%;
+    height: 250px;
+    max-width: 80% !important;
+    max-height: 80% !important;
+    background-color: $gray--50;
+    color: $white;
+    margin-bottom: 15px;
+  }
+  .banner {
+    width: 100%;
+    height: auto;
+    img {
+      width: 100%;
+    }
+  }
+  .banner_1{
+    margin-bottom: 20px;
+  }
+  .banner_2 {
+    width: 80%;
+    height: 80%;
+    background-color: gray;
+  }
+  .cluster {
+    .img-wrapper{
+      height: 100px;
+    }
+    .podnaslov{
+      .medium{
+        display: none;
+      }
+    }
+    .mediumi {
+      a {
+        margin-right: 5px;
+        margin-left: -0.25rem;
+
+        &:first-child {
+          .crta {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .js-pager__items{
+    
+  }
 }

@@ -25,7 +25,7 @@ const Single_Cluster = ({ top_news, cluster }) => {
 
     return fliped;
   };
-  console.log(articles, 'articles');
+ 
 
   return (
     <div className="container big-container single-cluster">
