@@ -82,7 +82,7 @@ const Cont_3_Right = ({ cont_right, header, category_link_right }) => {
                             )}
                           </Fragment>
                         ))}
-                        <Link href={`/cluster/${category_link_right}`}>
+                        <Link href={`/cluster/${cluster.id}`}>
                           <a>
                             <Medium
                               crta="|"
